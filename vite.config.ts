@@ -6,16 +6,26 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: 'host',
-      remotes: {
-        remoteApp: 'http://localhost:5001/assets/remoteEntry.js',
+      name: 'remote_app',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './LaxEditor': './src/lexical/LexicalEditor.tsx'
       },
       shared: ['react', 'react-dom'],
     }),
   ],
   build: {
+    modulePreload: false,
     target: 'esnext',
-    minify: false,
     cssCodeSplit: false,
+    minify: false,
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+        },
+      },
+    },
   }
 })

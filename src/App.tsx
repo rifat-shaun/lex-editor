@@ -1,5 +1,5 @@
 import './App.css'
-import { LexicalEditor } from './lexical/LexicalEditor'
+import { LexicalEditor } from './index';
 
 function App() {
   return (

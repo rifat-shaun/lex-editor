@@ -11,7 +11,7 @@ function onError(_error: Error) {
   console.error(_error);
 }
 
-export const LexicalEditor = () => {
+const LexicalEditor = () => {
   const initialConfig = {
     namespace: 'LAX-EDITOR',
     theme,
@@ -29,3 +29,5 @@ export const LexicalEditor = () => {
     </div>
   );
 };
+
+export default LexicalEditor;
